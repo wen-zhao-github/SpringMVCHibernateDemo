@@ -8,9 +8,23 @@
 <title>Customer list</title>
 </head>
 <body>
-<h3>coming......</h3>
-<c:forEach var = "tempCustomer" items = "${customer_list}">
- ${tempCustomer.firstName}
-</c:forEach>
+<h3>Welcome to Customer Report</h3>
+<input type = "submit" value="Add Customer">
+<br/><br/>
+<table border = "1px">
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+	</tr>
+
+	<c:forEach var = "tempCustomer" items = "${customer_list}">
+		<tr>
+			<td>${tempCustomer.firstName}</td>
+			<td>${tempCustomer.lastName}</td>
+			<td>${tempCustomer.email}</td>
+		</tr>
+	</c:forEach>
+</table>
 </body>
 </html>
