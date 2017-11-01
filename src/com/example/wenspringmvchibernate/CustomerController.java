@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.wenspringmvchibernate.services.CustomerService;
@@ -23,5 +24,15 @@ public class CustomerController {
 		model.addAttribute("customer_list",customers);		
 		return "custom-list";
 	}
-
+	@RequestMapping("/showFormForAdd")
+    public String addCustomer(Model model){
+		Customer customer = new Customer();
+		model.addAttribute("new_customer", customer);		
+		return "add-customer-form";
+	}
+	@RequestMapping("/processAddForm")
+	public String processAddCustomer(@ModelAttribute("new_customer") Customer customer){
+		customerService.addCustomer(customer);
+		return "redirect:/customer/list";		
+	}
 }

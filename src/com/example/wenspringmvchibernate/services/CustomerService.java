@@ -7,4 +7,6 @@ import com.example.wenspringmvchibernate.Customer;
 public interface CustomerService {
 	List<Customer> getCustomers();
 
+	void addCustomer(Customer customer);
+
 }

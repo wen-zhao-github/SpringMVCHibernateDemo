@@ -9,7 +9,8 @@
 </head>
 <body>
 <h3>Welcome to Customer Report</h3>
-<input type = "submit" value="Add Customer">
+<input type = "submit" value="Add Customer"
+ onclick = "window.location.href='/SpringMVCHibernateDemo/customer/showFormForAdd';return false;"/>
 <br/><br/>
 <table border = "1px">
 	<tr>
