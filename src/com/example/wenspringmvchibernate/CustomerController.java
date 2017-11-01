@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.wenspringmvchibernate.services.CustomerService;
 
@@ -34,5 +35,16 @@ public class CustomerController {
 	public String processAddCustomer(@ModelAttribute("new_customer") Customer customer){
 		customerService.addCustomer(customer);
 		return "redirect:/customer/list";		
+	}
+	@RequestMapping("/updateForm")
+	public String updateForm(@RequestParam("customerId") int customerid, Model model){
+		Customer customer = customerService.getCustomer(customerid);
+		model.addAttribute("currentCustomer", customer);
+		return "update-form";
+	}
+	@RequestMapping("/saveUpdates")
+	public String saveUpdates(@ModelAttribute("currentCustomer") Customer customer,@RequestParam("id") int id){
+		
+		return "redirect:/customer/list";
 	}
 }
