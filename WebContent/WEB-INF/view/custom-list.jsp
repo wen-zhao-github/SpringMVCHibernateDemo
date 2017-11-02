@@ -24,14 +24,14 @@
 		<c:url var = "updateLink" value="/customer/updateForm">
 			<c:param name="customerId" value="${tempCustomer.id}"/>
 		</c:url>
-		<c:url var = "deleteLink" value="/deleteForm">
+		<c:url var = "deleteLink" value="/customer/deleteForm">
 			<c:param name="customerId" value="${tempCustomer.id}"/>
 		</c:url>
 		<tr>
 			<td>${tempCustomer.firstName}</td>
 			<td>${tempCustomer.lastName}</td>
 			<td>${tempCustomer.email}</td>
-			<td><a href="${updateLink}">Update</a>|<a href="${deleteLink}">Delete</a></td>
+			<td><a href="${updateLink}">Update</a>|<a href="${deleteLink}" onclick="return confirm('Are you sure you want to Remove?');" >Delete</a></td>
 		</tr>
 	</c:forEach>
 </table>
