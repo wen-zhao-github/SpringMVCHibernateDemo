@@ -19,6 +19,6 @@
 		<input type="submit" value = "Save" />
 	</form:form>
 	<br/><br/>
-	<a href = "/SpringMVCHibernateDemo/customer/list">Back to List</a>
+	<a href = "${pageContext.request.contextPath}/customer/list">Back to List</a>
 </body>
 </html>

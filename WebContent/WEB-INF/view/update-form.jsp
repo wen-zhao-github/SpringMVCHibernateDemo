@@ -8,7 +8,7 @@
 <title>Update Customer</title>
 </head>
 <body>
-<form:form action="/customer/saveUpdates" modelAttribute="currentCustomer">
+<form:form action="${pageContext.request.contextPath}/customer/saveUpdates" modelAttribute="currentCustomer">
 	<form:hidden path = "id"/>
 	
 		<label>First Name: </label><form:input path="firstName"/> <br/><br/>

@@ -43,8 +43,8 @@ public class CustomerController {
 		return "update-form";
 	}
 	@RequestMapping("/saveUpdates")
-	public String saveUpdates(@ModelAttribute("currentCustomer") Customer customer,@RequestParam("id") int id){
-		
+	public String saveUpdates(@ModelAttribute("currentCustomer") Customer customer){
+		customerService.addCustomer(customer);
 		return "redirect:/customer/list";
 	}
 }
